@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kolam Renang</title>
+    <style>
+        /* Tambahkan CSS agar tabel terlihat lebih baik */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: red;
+        }
+        a:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Kolam Renang</h1>
+    <a href="/add">Tambah Kolam Renang</a>
+
+    <!-- Tabel untuk menampilkan data kolam renang -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Lokasi</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Looping untuk menampilkan data kolam renang -->
+            <% pools.forEach(function(pool) { %>
+                <tr>
+                    <td><%= pool.id %></td>
+                    <td><%= pool.name %></td>
+                    <td><%= pool.location %></td>
+                    <td><%= pool.price %></td>
+                    <td>
+                        <!-- Link untuk menghapus data kolam renang -->
+                        <a href="/delete/<%= pool.id %>">Hapus</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
